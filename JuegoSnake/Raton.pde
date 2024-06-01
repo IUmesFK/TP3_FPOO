@@ -1,0 +1,3 @@
+class Raton extends Animal{
+
+}

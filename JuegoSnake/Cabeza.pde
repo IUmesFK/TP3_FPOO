@@ -1,0 +1,2 @@
+class Cabeza extends GameObject{
+}

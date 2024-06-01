@@ -1,0 +1,3 @@
+class Escenario extends GameObject{
+
+}

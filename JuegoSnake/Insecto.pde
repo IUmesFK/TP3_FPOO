@@ -1,0 +1,3 @@
+class Insecto extends Animal{
+
+}
