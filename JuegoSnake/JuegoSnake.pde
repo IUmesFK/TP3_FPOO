@@ -11,5 +11,6 @@ void setup(){
 void draw(){
 background(0);
   esenario.display();
-    snake.display();
+  snake.display();
+  snake.movimiento();
 }
