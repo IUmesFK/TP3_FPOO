@@ -1,11 +1,13 @@
 class Cabeza extends GameObject{
   private PVector velocidad;
   private int tamano;
+  private ArrayList<ListaAnimalComido> animalesComidos;
   
   Cabeza(PVector posicion,PVector velocidad){
     this.posicion=posicion;
     this.velocidad=velocidad;
     this.tamano=20;
+    animalesComidos = new ArrayList<ListaAnimalComido>();
   }
   void display(){
     fill(#E0F016);
@@ -23,6 +25,35 @@ class Cabeza extends GameObject{
     }
     if(key=='d'||key=='D'){
         this.posicion.x+=this.velocidad.x;
+    }
+    if(this.posicion.x>width){
+      this.posicion.x=0;
+    }else if(this.posicion.x<0){
+      this.posicion.x=width;
+    }
+    if(this.posicion.y>height-50){
+      this.posicion.y=50;
+    }else if(this.posicion.y<50){
+      this.posicion.y=height-50;
+    }
+  }
+  public void comerAnimal(int idTipoAnimal, int tiempoActual) {
+    switch(idTipoAnimal) {
+      case 1:{
+        animalesComidos.add(new ListaAnimalComido(1, tiempoActual));
+        println(tiempoActual + "s: Se comió un insecto");
+      break;
+      }
+      case 2:{
+        animalesComidos.add(new ListaAnimalComido(2, tiempoActual));
+        println(tiempoActual + "s: Se comió un pajaro");
+      break;
+      }
+      case 3:{
+        animalesComidos.add(new ListaAnimalComido(3, tiempoActual));
+        println(tiempoActual + "s: Se comió un ratón");
+      break;
+      }
     }
   }
   
