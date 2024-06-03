@@ -2,10 +2,9 @@ class Raton extends Animal{
   public Raton() {
   }
   
-  public Raton(PVector posicion, PImage imagen, int puntaje) {
+  public Raton(PVector posicion, PImage imagen) {
     this.posicion=posicion;
     this.imagen=imagen;
-    this.puntaje=puntaje;
   }
   
   public PVector getPosicion() {

@@ -21,20 +21,57 @@ class Hud {
   }
 
   // --- METODOS ---
-  void display() {
-    int tiempoTranscurrido = (millis() - tiempoInicial) / 1000;  // Tiempo transcurrido en segundos
-    int tiempoRestante = cuentaRegresiva - tiempoTranscurrido;  // Tiempo restante en segundos
-
+  public void mostrarTiempo(int tiempoRestante) {
     // --- Configuración de la fuente y el color del texto ---
     textFont(fuente);
     fill(255);  // Color blanco
     textAlign(LEFT, TOP);
 
     // --- Mostrar el tiempo restante ---
-    if (tiempoRestante >= 0) {
+    if (tiempoRestante > 1) {
+      textAlign(LEFT, TOP);
       text("Tiempo restante: " + tiempoRestante + " segundos", 10, 10);
+    } else if (tiempoRestante == 1) {
+      textAlign(LEFT, TOP);
+      text("Tiempo restante: " + tiempoRestante + " segundo", 10, 10);
     } else {
+      textAlign(LEFT, TOP);
       text("¡Tiempo agotado!", 10, 10);
     }
+  }
+  
+  public void mostrarAnimalesComidos(int idTipoAnimal, int tiempoTranscurrido, Cabeza cabeza) {
+    // ---- Estructura iterativa for que se utiliza para recorrer la lista de los animales que se comió ----
+    for(int i = 0; i < cabeza.animalesComidos.size(); i++) {
+      String tipoAnimal = "";
+      // ---- switch que sirve para saber que tipo de animal se comió y mostrarlo en la pantalla ----
+      switch(idTipoAnimal) {
+        case 1:{
+          tipoAnimal = "insecto";
+        break;
+        }
+        case 2:{
+          tipoAnimal = "pájaro";
+        break;
+        }
+        case 3:{
+          tipoAnimal = "ratón";
+        break;
+        }
+      }
+      String mensaje = "Se comió un " + tipoAnimal + " (" + tiempoTranscurrido + "s)";
+      textFont(fuente);
+      fill(#40E0D0);
+      textSize(30);
+      textAlign(CENTER);
+      text(mensaje, width/2, height-20);
+    }
+  }
+  
+  public void mostrarPuntaje(int puntaje) {
+    textFont(fuente);
+    fill(255);
+    textAlign(RIGHT, TOP);
+    text("Puntaje: " + puntaje, width-10, 10);
   }
 }
