@@ -2,10 +2,9 @@ class Insecto extends Animal{
   public Insecto() {
   }
   
-  public Insecto(PVector posicion, PImage imagen, int puntaje) {
+  public Insecto(PVector posicion, PImage imagen) {
     this.posicion=posicion;
     this.imagen=imagen;
-    this.puntaje=puntaje;
   }
   
   public PVector getPosicion() {
@@ -28,7 +27,7 @@ class Insecto extends Animal{
     return this.puntaje;
   }
   
-  public void setPuntuacion(int puntaje) {
+  public void setPuntaje(int puntaje) {
     this.puntaje=puntaje;
   }
   

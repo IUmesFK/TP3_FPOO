@@ -2,10 +2,9 @@ class Pajaro extends Animal{
   public Pajaro() {
   }
   
-  public Pajaro(PVector posicion, PImage imagen, int puntaje) {
+  public Pajaro(PVector posicion, PImage imagen) {
     this.posicion=posicion;
     this.imagen=imagen;
-    this.puntaje=puntaje;
   }
   
   public PVector getPosicion() {
