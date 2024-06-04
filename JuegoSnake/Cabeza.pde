@@ -41,17 +41,15 @@ class Cabeza extends GameObject{
     switch(idTipoAnimal) {
       case 1:{
         animalesComidos.add(new ListaAnimalComido(1, tiempoActual));
-        println(tiempoActual + "s: Se comió un insecto");
+       
       break;
       }
       case 2:{
         animalesComidos.add(new ListaAnimalComido(2, tiempoActual));
-        println(tiempoActual + "s: Se comió un pajaro");
       break;
       }
       case 3:{
         animalesComidos.add(new ListaAnimalComido(3, tiempoActual));
-        println(tiempoActual + "s: Se comió un ratón");
       break;
       }
     }
