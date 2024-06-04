@@ -11,6 +11,7 @@ private int puntajePajaro;
 private int puntajeRaton;
 private int tipoAnimalComido;
 private int tiempoAnimalComido; // Para indicar en qué tiempo se comió al animal
+boolean estadoJuego;
 
 void setup(){
   size(400,400);
@@ -29,10 +30,12 @@ void setup(){
   escenario.raton.setPuntaje(puntajeRaton);
   puntajeRaton=7;
   snake=new Snake();
-  hud=new Hud();
+  hud=new Hud();  
+  estadoJuego=true;
 }
 
 void draw(){
+  if(estadoJuego){
   background(0);
   int tiempoTranscurrido = (millis() - tiempoInicial) / 1000;  // Tiempo transcurrido en segundos
   int tiempoRestante = cuentaRegresiva - tiempoTranscurrido;  // Tiempo restante en segundos
@@ -92,4 +95,22 @@ void draw(){
       }
     }
   }
-}
+  if(tiempoRestante<=0){
+      background(0);
+      textSize(20);
+      fill(255);
+      text("Se acabo el tiempo",width/2+85,height/2);
+      text("Su puntaje es : "+puntaje,width/2+80,height/2+30);
+      estadoJuego=false;
+
+    }else if(snake.colisionCuerpo()){
+        background(0);
+        textSize(20);
+        fill(255);
+        textMode(CENTER);
+        text("Huy Perdiste ",width/2+50,height/2);
+        text("Su puntaje es : "+puntaje,width/2+80,height/2+30);
+        estadoJuego=false;
+      }
+    }
+  }

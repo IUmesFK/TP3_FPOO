@@ -39,5 +39,13 @@ void movimiento() {
   void crecer() {
       // Agregar un nuevo segmento al final del cuerpo en la misma posición que el último segmento
       cuerpo.add(new Cuerpo(cuerpo.get(cuerpo.size() - 1).posicion.copy()));
-  }  
+  }
+  boolean colisionCuerpo() {
+   for (int i = 3; i < cuerpo.size(); i++) {
+     if (PVector.dist(cabeza.posicion, cuerpo.get(i).posicion) < cabeza.tamano) {
+          return true;
+        }
+      }
+      return false;
+    }
 }
