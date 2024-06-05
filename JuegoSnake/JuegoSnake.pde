@@ -12,6 +12,7 @@ private int puntajeRaton;
 private int tipoAnimalComido;
 private int tiempoAnimalComido; // Para indicar en qué tiempo se comió al animal
 boolean estadoJuego;
+private float distancia;
 
 void setup(){
   size(400,400);
@@ -58,20 +59,23 @@ void draw(){
   for(int i=0; i<limiteCantidad; i++) {
     switch(idTipoAnimal) {
       case 1:{
-        escenario.mostrarPrimerAnimal(idTipoAnimal, snake.cabeza);
-        if(escenario.distancia<25) {
+        distancia=dist(snake.cabeza.posicion.x,  snake.cabeza.posicion.y, escenario.insecto.posicion.x, escenario.insecto.posicion.y);
+        escenario.mostrarPrimerAnimal(idTipoAnimal);
+        if(distancia<25) {
           snake.crecer();
           snake.cabeza.comerAnimal(idTipoAnimal, tiempoTranscurrido);
           tipoAnimalComido=idTipoAnimal;
           tiempoAnimalComido = millis() / 1000;
           puntaje+=puntajeInsecto;
           escenario.mostrarNuevoAnimal();
-        }
+            
+      }
       break;
       }
       case 2:{
-        escenario.mostrarPrimerAnimal(idTipoAnimal, snake.cabeza);
-        if(escenario.distancia<25) {
+        distancia=dist(snake.cabeza.posicion.x,  snake.cabeza.posicion.y, escenario.pajaro.posicion.x, escenario.pajaro.posicion.y);
+        escenario.mostrarPrimerAnimal(idTipoAnimal);
+        if(distancia<25) {
           snake.crecer();
           snake.cabeza.comerAnimal(idTipoAnimal, tiempoTranscurrido);
           tipoAnimalComido=idTipoAnimal;
@@ -82,8 +86,9 @@ void draw(){
       break;
       }
       case 3:{
-        escenario.mostrarPrimerAnimal(idTipoAnimal, snake.cabeza);
-        if(escenario.distancia<25) {
+        distancia=dist(snake.cabeza.posicion.x,  snake.cabeza.posicion.y, escenario.raton.posicion.x, escenario.raton.posicion.y);
+        escenario.mostrarPrimerAnimal(idTipoAnimal);
+        if(distancia<25) {
           snake.crecer();
           snake.cabeza.comerAnimal(idTipoAnimal, tiempoTranscurrido);
           tipoAnimalComido=idTipoAnimal;
@@ -95,22 +100,22 @@ void draw(){
       }
     }
   }
-  if(tiempoRestante<=0){
-      background(0);
-      textSize(20);
-      fill(255);
-      text("Se acabo el tiempo",width/2+85,height/2);
-      text("Su puntaje es : "+puntaje,width/2+80,height/2+30);
-      estadoJuego=false;
-
-    }else if(snake.colisionCuerpo()){
-        background(0);
-        textSize(20);
-        fill(255);
-        textMode(CENTER);
-        text("Huy Perdiste ",width/2+50,height/2);
-        text("Su puntaje es : "+puntaje,width/2+80,height/2+30);
-        estadoJuego=false;
-      }
+  if(tiempoRestante<=0) {
+    background(0);
+    textSize(20);
+    fill(255);
+    textAlign(CENTER);
+    text("Se acabo el tiempo",width/2,height/2);
+    text("Su puntaje es : "+puntaje,width/2,height/2+30);
+    estadoJuego=false;
+  } else if(snake.colisionCuerpo()){
+    background(0);
+    textSize(20);
+    fill(255);
+    textAlign(CENTER);
+    text("Huy Perdiste ",width/2,height/2);
+    text("Su puntaje es : "+puntaje,width/2,height/2+30);
+    estadoJuego=false;
     }
-  }
+  } 
+}
