@@ -8,7 +8,6 @@
   PImage[] imagen;
   int imagen1=0;
   int imagenMax=59;
-  private float distancia;
   
   Escenario(float x,float y){
     this.posicion=new PVector(x,y);
@@ -29,26 +28,23 @@
     imagen1=(imagen1+1)%imagen.length;
   }
   
-  public void mostrarPrimerAnimal(int idTipoAnimal, Cabeza cabeza) {
+  public void mostrarPrimerAnimal(int idTipoAnimal) {
     switch(idTipoAnimal) {
       case 1:{
         if(insecto != null) {
           insecto.display();
-          distancia=dist(cabeza.posicion.x, cabeza.posicion.y, insecto.posicion.x, insecto.posicion.y);
         }
       break;
       }
       case 2:{
         if(pajaro != null) {
           pajaro.display();
-          distancia=dist(cabeza.posicion.x, cabeza.posicion.y, pajaro.posicion.x, pajaro.posicion.y);
         }
       break;
       }
       case 3:{
         if(raton != null) {
           raton.display();
-          distancia=dist(cabeza.posicion.x, cabeza.posicion.y, raton.posicion.x, raton.posicion.y);
         }
       break;
       }
