@@ -1,4 +1,4 @@
-public class Muro{
+class Muro{
   private int resistencia;
   private Transform transform;
   private ImageComponent imageComponent;
