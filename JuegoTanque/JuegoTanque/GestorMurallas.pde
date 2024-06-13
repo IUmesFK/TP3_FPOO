@@ -1,4 +1,4 @@
-public class GestorMurrallas {
+class GestorMurrallas {
   private ArrayList<Muro> muro;
   private float distancia;
   private float distanciaMinima = 55; // Distancia mínima para colisiones
@@ -28,7 +28,7 @@ public class GestorMurrallas {
         nuevaPosicion =  new PVector(random(40, width - 40), random(40, height - 120));    
         // ---- Se verifica si el nuevo muro se superpone con los muros existentes para saber si puede generarse ahí o no ----
         for(Muro m : muro) {
-          if(dist(nuevaPosicion.x, nuevaPosicion.y, m.transform.getPosition().x, m.transform.getPosition().y) <=distanciaMinima) {
+          if(dist(nuevaPosicion.x, nuevaPosicion.y, m.transform.getPosition().x, m.transform.getPosition().y) <= distanciaMinima) {
             posicionDisponible = false;
           }
         }
@@ -65,7 +65,7 @@ public class GestorMurrallas {
       Bala bala = balas.get(i);
       for(int j = muro.size() - 1; j >= 0; j--) {
         Muro m = muro.get(j);
-        distancia = dist(bala.getPosition().x, bala.getPosition().y, m.transform.getPosition().x, m.transform.getPosition().y); // Se calcula la distancia entre una bala y un muro
+        distancia = dist(bala.transform.getPosition().x, bala.transform.getPosition().y, m.transform.getPosition().x, m.transform.getPosition().y); // Se calcula la distancia entre una bala y un muro
         // ---- Si la distancia entre cierta bala y cierto muro es menor a 20, se elimina la bala y se debilita el muro ----
         if(distancia < 20) {
           balas.remove(i);

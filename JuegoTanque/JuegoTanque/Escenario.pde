@@ -1,9 +1,8 @@
-class Ecenario {
+class Escenario {
   private PImage imagenE;
   private PVector position;
   
-  Ecenario(){
-  
+  public Escenario(){
   }
   
   void display(){

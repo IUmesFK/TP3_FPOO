@@ -1,10 +1,10 @@
-public class Tanke{
+class Tanque {
   private Transform transform;
   private ImageComponent imageComponent;
   private PVector velocidad;
   ArrayList<Bala>bala;
   
-  Tanke(ImageComponent image,Transform transform){
+  Tanque(ImageComponent image,Transform transform){
     this.transform=transform;
     this.imageComponent=image;
     bala=new ArrayList<Bala>();
